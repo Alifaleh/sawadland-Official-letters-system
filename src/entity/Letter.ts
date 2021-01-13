@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne, JoinColumn, OneToMany} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany, Generated} from "typeorm";
 import { Admin } from "./Admin";
 import { Form } from "./Form";
 import { LetterData } from "./LetterData";
@@ -8,6 +8,10 @@ export class Letter {
 
     @PrimaryGeneratedColumn('uuid')
     id: string;
+
+    @Column()
+    @Generated('increment')
+    serial: number;
 
     @Column({type:'timestamp'})
     Date: Date;

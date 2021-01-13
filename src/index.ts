@@ -26,7 +26,7 @@ createConnection().then(async connection => {
         res.send('welcome to sawadland official letters system');
     })
 
-    app.post('/', ( req, res ) => {
+    app.get('/allforms', ( req, res ) => {
         res.send('welcome to sawadland official letters system');
     })
 
