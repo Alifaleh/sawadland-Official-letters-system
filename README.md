@@ -1,4 +1,4 @@
-# Awesome Project Build with TypeORM
+# Sawadland official letters system
 
 Steps to run this project:
 
