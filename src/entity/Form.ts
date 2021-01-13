@@ -10,7 +10,7 @@ export class Form {
     @Column()
     subject: string;
 
-    @OneToMany(type => Letter, letter => letter.form , {cascade:true})
+    @OneToMany(type => Letter, letter => letter.form)
     letters:Letter[]
 
 }

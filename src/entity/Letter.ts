@@ -23,7 +23,7 @@ export class Letter {
     @JoinColumn()
     form:Form;
 
-    @OneToMany(type => LetterData, letterData => letterData.letter, {cascade:true})
+    @OneToMany(type => LetterData, letterData => letterData.letter)
     letterData:Letter[];
 
 }

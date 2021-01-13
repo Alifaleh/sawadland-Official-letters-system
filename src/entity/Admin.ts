@@ -17,10 +17,10 @@ export class Admin {
     @Column()
     level: number;
 
-    @OneToMany(type => Letter, letter => letter.admin, {cascade:true})
+    @OneToMany(type => Letter, letter => letter.admin)
     letters : Letter[];
 
-    @OneToMany(type => Session, session => session.admin, {cascade:true})
+    @OneToMany(type => Session, session => session.admin)
     sessions:Session[];
 
 }
