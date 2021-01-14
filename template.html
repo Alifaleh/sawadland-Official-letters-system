@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <mate charest="utf-8" />
+        <title>Hello world!</title>
+        <style>
+            @font-face {
+                font-family: "Dubai";
+                src: url(data:font/truetype;charset=utf-8;base64,L21udC9jL1VzZXJzL0FsaS9EZXNrdG9wL3Byb2plY3RzL3Nhd2FkbGFuZC1vZmZpY2lhbC1sZXR0ZXJzLXN5c3RlbS9hc3NldHMvZm9udHMvRHViYWktUmVndWxhci50dGY=) format('truetype');
+
+            }
+            body{
+                font-family: "Dubai";
+                color:#333;
+            }
+            .f12{
+                font-size: 12px;
+            }
+            .f14{
+                font-size: 14px;
+            }
+            .b{
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1" width='100%' font=''>
+            <tr>
+                <td colspan="2">
+                    <img src="file:////mnt/c/Users/Ali/Desktop/projects/sawadland-official-letters-system/assets/images/logo.png" width="150px" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td align="right" width='80%'>{{this.letterNumber}}</td>
+                <td align="right" class="b f12">
+                    : العدد
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right" width='80%'>{{this.date}}</td>
+                <td align="right" class="b f12">
+                    : التاريخ
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center" height='80px'></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center" width='90%' class='b f14'>إلى/الشركة العامة للإتصالات و المعلوماتية - مديرية التراسل</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center" width='90%' class='b f14'>{{this.subject}}/م</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="right" width='90%' class='f12'>{{this.greeting}}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="right" width='90%' class='f12'>{{this.paragraph}}</td>
+            </tr>
+           
+            <tr>
+                <td colspan="2" align="center" width='90%' class='b f14'>{{this.footer}}</td>
+            </tr>
+        </table>
+
+        <table width='100%' border="1">
+            <tr>
+                <td align="center" class='f12'>طارق خليل ابراهيم<br>المدير المفوض<br>{{this.date}}</td>
+                <td width='80%'></td>
+            </tr>
+        </table>
+    </body>
+</html>

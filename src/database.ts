@@ -19,7 +19,7 @@ export const getAllForms = async () => {
 export const getFormData = async (formId) => {
     const formData = await getConnection()
     .createQueryBuilder()
-    .select(['form_data.DataName'])
+    .select(['form_data.dataName'])
     .from(FormData, 'form_data')
     .where(`form_data.formId = '${formId}'`)
     .getMany();
@@ -36,10 +36,36 @@ export const addLetter = async (data,date,formId) => {
     .returning("id")
     .execute();
     const addedLetterId = addedLetter.identifiers[0].id;
-    console.log(data)
-    // data.array.forEach(element => {
-    //     console.log(element);
-    // });
-    return addedLetterId;
+    const addedLetterSerial = await getConnection()
+    .createQueryBuilder()
+    .select(['letter.serial'])
+    .from(Letter,'letter')
+    .where(`letter.id = '${addedLetterId}'`)
+    .getOne();
+
+    const addedLetterConstants = await getConnection()
+    .createQueryBuilder()
+    .select('form')
+    .from(Form, 'form')
+    .where(`form.id = '${formId}'`)
+    .getOne();
+
+    console.log(addedLetterConstants)
+
+
+    const formData = await getFormData(formId);
+    
+    let dataToInsert = [];
+    formData.forEach(item => {
+        dataToInsert.push({dataName:item.dataName,dataValue:data[item.dataName],letter:addedLetterId});
+    })
+
+    await getConnection()
+    .createQueryBuilder()
+    .insert()
+    .into(LetterData)
+    .values(dataToInsert)
+    .execute()
+    return [addedLetterId, addedLetterSerial.serial, addedLetterConstants];
 }
 

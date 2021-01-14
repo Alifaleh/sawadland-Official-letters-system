@@ -8,7 +8,7 @@ export class FormData {
     id: string;
 
     @Column()
-    DataName: string;
+    dataName: string;
 
     @ManyToOne(type => Form, form => form.formData, {cascade:true})
     @JoinColumn()

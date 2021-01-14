@@ -6,16 +6,16 @@ VALUES
 (
     'مد كابل ضوئي',
     ' تهديكم شركة ارض السواد لتكنولوجيا المعلومات وخدمات الانترنت أطيب تحياتها...',
-    'و ترجو التفضل بالموافقة على مد كابل ضوئي في محافظة ${city} و تخصيص شعيرات عدد ${fiberOpticNumber} الى موقع مكتبنا و حسب الاحداثيات المدرجة أدناه :
-E ${latitude}
-M ${longitude}
+    'و ترجو التفضل بالموافقة على مد كابل ضوئي في محافظة {{this.city}} و تخصيص شعيرات عدد {{this.fiberOpticNumber}} الى موقع مكتبنا و حسب الاحداثيات المدرجة أدناه :
+E {{this.latitude}}
+M {{this.longitude}}
 ',
     'شاكرين تعاونكم معنا...'
     ),
 (
     'تقليل سعة محلية',
     ' تهديكم شركة ارض السواد لتكنولوجيا المعلومات وخدمات الانترنت أطيب تحياتها...',
-    'يرجى التفضل بالموافقة على تقليل السعة المحلية المستخدمة في محافظة الموصل بمقدار ${decrementAmount} لتصبح السعة ${afterDecrement} بدلا" ${beforeDecrement} للمسار ${path} و ذلك لحاجتنا لتقليل هذه السعات.',
+    'يرجى التفضل بالموافقة على تقليل السعة المحلية المستخدمة في محافظة الموصل بمقدار {{this.decrementAmount}} لتصبح السعة ${afterDecrement} بدلا" ${beforeDecrement} للمسار ${path} و ذلك لحاجتنا لتقليل هذه السعات.',
     'شاكرين تعاونكم معنا...'
     ),
 (
@@ -27,12 +27,12 @@ M ${longitude}
 (
     'زيادة سعة محلية',
     ' تهديكم شركة ارض السواد لتكنولوجيا المعلومات وخدمات الانترنت أطيب تحياتها...',
-    'يرجى التفضل  بالموافقة  على زيادة سعة محلية في محافظة ميسان و مقدارها ${incrementAmount} و على  مسار  ${path} و المحمولة على ${port} لتصبح السعة ${afterIncrement} بدلا" ${beforeIncrement} و ذلك لحاجتنا لهذه السعات.',
+    'يرجى التفضل  بالموافقة  على زيادة سعة محلية في محافظة ميسان و مقدارها {{this.incrementAmount}} و على  مسار  {{this.path}} و المحمولة على {{this.port}} لتصبح السعة {{this.afterIncrement}} بدلا" {{this.beforeIncrement} و ذلك لحاجتنا لهذه السعات.',
     'شاكرين تعاونكم معنا...'
     );
 
 -- مد كابل ضوئي
-INSERT INTO "form_data" ("DataName", "formId")
+INSERT INTO "form_data" ("dataName", "formId")
 VALUES
 ('city',(select id FROM "form" WHERE "subject" = 'مد كابل ضوئي')),
 ('longitude',(select id FROM "form" WHERE "subject" = 'مد كابل ضوئي')),
@@ -40,7 +40,7 @@ VALUES
 ('FiberOpticsNumber',(select id FROM "form" WHERE "subject" = 'مد كابل ضوئي'));
 
 -- تقليل سعة محلية
-INSERT INTO "form_data" ("DataName", "formId")
+INSERT INTO "form_data" ("dataName", "formId")
 VALUES
 ('city',(select id FROM "form" WHERE "subject" = 'تقليل سعة محلية')),
 ('decrementAmount',(select id FROM "form" WHERE "subject" = 'تقليل سعة محلية')),
@@ -49,7 +49,7 @@ VALUES
 ('path', (select id FROM "form" WHERE "subject" = 'تقليل سعة محلية'));
 
 -- تقليل سعة دولية
-INSERT INTO "form_data" ("DataName", "formId")
+INSERT INTO "form_data" ("dataName", "formId")
 VALUES
 ('city',(select id FROM "form" WHERE "subject" = 'تقليل سعة دولية')),
 ('decrementAmount',(select id FROM "form" WHERE "subject" = 'تقليل سعة دولية')),
@@ -58,7 +58,7 @@ VALUES
 ('path', (select id FROM "form" WHERE "subject" = 'تقليل سعة دولية'));
 
 -- زيادة سعة محلية
-INSERT INTO "form_data" ("DataName", "formId")
+INSERT INTO "form_data" ("dataName", "formId")
 VALUES
 ('city',(select id FROM "form" WHERE "subject" = 'زيادة سعة محلية')),
 ('incrementAmount',(select id FROM "form" WHERE "subject" = 'زيادة سعة محلية')),

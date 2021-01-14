@@ -8,10 +8,10 @@ export class LetterData {
     id: string;
 
     @Column()
-    DataName: string;
+    dataName: string;
 
     @Column()
-    DataValue: string;
+    dataValue: string;
 
     @ManyToOne(type => Letter, letter => letter.letterData, {cascade:true})
     @JoinColumn()
