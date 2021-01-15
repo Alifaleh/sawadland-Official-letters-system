@@ -1,0 +1,3 @@
+http://localhost:3000/allforms
+http://localhost:3000/formdata/120afbe8-774d-414c-8592-4ae7f72693a2
+http://localhost:3000/addletter/120afbe8-774d-414c-8592-4ae7f72693a2?date=1610706389&data={"city":"baghdad","decrementAmount":"100","beforeDecrement":"500","afterDecrement":"400","path":"(blabla/34/shablam)"}

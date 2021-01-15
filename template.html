@@ -5,42 +5,56 @@
         <title>Hello world!</title>
         <style>
             @font-face {
-                font-family: "Dubai";
-                src: url(data:font/truetype;charset=utf-8;base64,L21udC9jL1VzZXJzL0FsaS9EZXNrdG9wL3Byb2plY3RzL3Nhd2FkbGFuZC1vZmZpY2lhbC1sZXR0ZXJzLXN5c3RlbS9hc3NldHMvZm9udHMvRHViYWktUmVndWxhci50dGY=) format('truetype');
+                font-family: 'dubaiRegular';
+                src: url(data:font/truetype;charset=utf-8;base64,{{regularFont}}) format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
 
+            @font-face {
+                font-family: 'dubaiBold';
+                src: url(data:font/truetype;charset=utf-8;base64,{{boldFont}}) format('truetype');
+                font-weight: normal;
+                font-style: normal;
             }
-            body{
-                font-family: "Dubai";
-                color:#333;
-            }
+
             .f12{
                 font-size: 12px;
+                color: #333;
             }
+
             .f14{
+                color: #333;
                 font-size: 14px;
             }
-            .b{
-                font-weight: 600;
+
+            .text {
+                direction: rtl;
+            }
+
+            table{
+                width: 90%;
+                margin: 30px auto;
             }
         </style>
     </head>
     <body>
-        <table border="1" width='100%' font=''>
+        <table>
             <tr>
                 <td colspan="2">
-                    <img src="file:////mnt/c/Users/Ali/Desktop/projects/sawadland-official-letters-system/assets/images/logo.png" width="150px" alt="">
+                    <img src="data:image/png;base64,{{logo}}" width='150px' />
                 </td>
             </tr>
             <tr>
-                <td align="right" width='80%'>{{this.letterNumber}}</td>
-                <td align="right" class="b f12">
+                <td align="right" width='83%' class="f12">{{letterNumber}}</td>
+                <td align="right" class="f12" style="font-family: dubaiBold;">
                     : العدد
                 </td>
             </tr>
 
             <tr>
-                <td align="right" width='80%'>{{this.date}}</td>
-                <td align="right" class="b f12">
+                <td align="right" width='83%' class="f12">{{date}}</td>
+                <td align="right" class="f12" style="font-family: dubaiBold;">
                     : التاريخ
                 </td>
             </tr>
@@ -50,29 +64,29 @@
             </tr>
 
             <tr>
-                <td colspan="2" align="center" width='90%' class='b f14'>إلى/الشركة العامة للإتصالات و المعلوماتية - مديرية التراسل</td>
+                <td colspan="2" align="center" width='90%' class='f14 text' style="font-family: dubaiBold;">إلى/الشركة العامة للإتصالات و المعلوماتية - مديرية التراسل</td>
             </tr>
 
             <tr>
-                <td colspan="2" align="center" width='90%' class='b f14'>{{this.subject}}/م</td>
+                <td colspan="2" align="center" width='90%' class='f14 text' style="font-family: dubaiBold;">م/ {{subject}}</td>
             </tr>
 
             <tr>
-                <td colspan="2" align="right" width='90%' class='f12'>{{this.greeting}}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td colspan="2" align="right" width='90%' class='f12 text' style="font-family: dubaiRegular;">&nbsp;&nbsp;&nbsp;&nbsp;{{greeting}}</td>
             </tr>
 
             <tr>
-                <td colspan="2" align="right" width='90%' class='f12'>{{this.paragraph}}</td>
+                <td colspan="2" align="right" width='90%' class='f12 text' style="font-family: dubaiRegular;">{{paragraph}}</td>
             </tr>
            
             <tr>
-                <td colspan="2" align="center" width='90%' class='b f14'>{{this.footer}}</td>
+                <td colspan="2" align="center" width='90%' class='f14 text' style="font-family: dubaiBold;">{{footer}}</td>
             </tr>
         </table>
 
-        <table width='100%' border="1">
+        <table style='padding-top: 50px;'>
             <tr>
-                <td align="center" class='f12'>طارق خليل ابراهيم<br>المدير المفوض<br>{{this.date}}</td>
+                <td align="center" class='f12 text' style="font-family: dubaiRegular;">طارق خليل ابراهيم<span style="font-family: dubaiBold;display: block;">المدير المفوض</span>{{date}}</td>
                 <td width='80%'></td>
             </tr>
         </table>

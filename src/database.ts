@@ -50,8 +50,6 @@ export const addLetter = async (data,date,formId) => {
     .where(`form.id = '${formId}'`)
     .getOne();
 
-    console.log(addedLetterConstants)
-
 
     const formData = await getFormData(formId);
     
