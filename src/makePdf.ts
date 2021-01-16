@@ -8,7 +8,7 @@ export const makePdf = (letterNumber, date, subject, greeting, paragraph, footer
   const regularFont = fs.readFileSync(path.join(__dirname,'../assets/fonts/Dubai-Regular.txt'));
   const boldFont    = fs.readFileSync(path.join(__dirname,'../assets/fonts/Dubai-Bold.txt'));
   const logo        = fs.readFileSync(path.join(__dirname,'../assets/images/logo.txt'));
-  const outputPath  = path.join(__dirname,`../letters/letter_${letterId}.pdf`);
+  const outputPath  = path.join(__dirname,`../letters/letter_${Date.now().toString()}_${letterId}.pdf`);
 
   let html = fs.readFileSync('template.html', 'utf8');
   html = html.replace(/{{logo}}/g,logo.toString())
@@ -28,5 +28,10 @@ export const makePdf = (letterNumber, date, subject, greeting, paragraph, footer
   pdf.create(html, options).toFile(outputPath, function(err, res) {
     if (err) return console.log(err);
   });
+  while(!fs.existsSync(outputPath)){}
+  setTimeout(()=>{
+    fs.unlinkSync(outputPath)
+  },60000)
 
+  return outputPath
 }

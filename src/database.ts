@@ -36,20 +36,6 @@ export const addLetter = async (data,date,formId) => {
     .returning("id")
     .execute();
     const addedLetterId = addedLetter.identifiers[0].id;
-    const addedLetterSerial = await getConnection()
-    .createQueryBuilder()
-    .select(['letter.serial'])
-    .from(Letter,'letter')
-    .where(`letter.id = '${addedLetterId}'`)
-    .getOne();
-
-    const addedLetterConstants = await getConnection()
-    .createQueryBuilder()
-    .select('form')
-    .from(Form, 'form')
-    .where(`form.id = '${formId}'`)
-    .getOne();
-
 
     const formData = await getFormData(formId);
     
@@ -64,6 +50,17 @@ export const addLetter = async (data,date,formId) => {
     .into(LetterData)
     .values(dataToInsert)
     .execute()
-    return [addedLetterId, addedLetterSerial.serial, addedLetterConstants];
+    return addedLetterId;
+}
+
+
+export const getLetter = async letterId => {
+    const letter = await getConnection()
+    .createQueryBuilder(Letter,'letter')
+    .innerJoinAndSelect("letter.letterData", 'letter_data', `letter.id = '${letterId}'`)
+    .innerJoinAndSelect("letter.form", "letter_form")
+    .innerJoinAndSelect('letter_form.formData',"form_data")
+    .getOne();
+    return letter
 }
 

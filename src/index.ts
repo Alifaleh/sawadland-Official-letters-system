@@ -3,9 +3,11 @@ import {AdvancedConsoleLogger, createConnection} from "typeorm";
 import express = require('express');
 import cookieParser = require('cookie-parser');
 import md5 = require('md5');
-import { getAllForms, getFormData, addLetter } from './database'
+import { getAllForms, getFormData, addLetter, getLetter } from './database'
 import { makePdf } from './makePdf';
-
+import { Letter } from "./entity/Letter";
+import fs = require('fs');
+import { setInterval } from "timers";
 
 const app = express();
 app.use(cookieParser());
@@ -21,6 +23,7 @@ const responseCodes={
     permitionDenaied:'2002',
     unrecognizedEntry :'2003',
     invalidFormData:'2004',
+    pageNotFound:'2005'
 }
 
 createConnection().then(async connection => {
@@ -39,7 +42,7 @@ createConnection().then(async connection => {
         res.json(formData);
     });
 
-    app.get('/addletter/:id', async ( req, res) =>{
+    app.post('/addletter/:id', async ( req, res) =>{
 
         let validData = true;
         let date = new Date(+req.query.date);
@@ -56,19 +59,37 @@ createConnection().then(async connection => {
         })
         if(validData){
             const addedLetter = await addLetter(newData, date,req.params.id);
-            let dateToPrint =(`${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`);
-            let letterNumberToPrint = (addedLetter[1]);
-            let paragraphToPrint = addedLetter[2].paragraph;
-            formData.forEach(item => {
-                paragraphToPrint=paragraphToPrint.replace("{{"+item.dataName+"}}",newData[item.dataName]);
-            })
-            makePdf(letterNumberToPrint, dateToPrint, addedLetter[2].subject, addedLetter[2].greeting, paragraphToPrint, addedLetter[2].footer, addedLetter[0])
-            res.send(responseCodes.success);
+
+            res.send({status:responseCodes.success, letterId:addedLetter});
         }else{
             res.send(responseCodes.invalidFormData);
         }
 
     });
+
+    app.get('/getpdf/:letterId', async (req,res)=>{
+        const letter:any = await getLetter(req.params.letterId);
+        if(letter != null){
+            let dateToPrint =(`${letter.Date.getFullYear()}/${letter.Date.getMonth()+1}/${letter.Date.getDate()}`);
+            let letterNumberToPrint = (letter.serial);
+            let paragraphToPrint = letter.form.paragraph;
+            const formData = letter.form.formData;
+            const letterData = letter.letterData;
+    
+            formData.forEach(formData => {
+                paragraphToPrint=paragraphToPrint.replace("{{"+formData.dataName+"}}",letterData.find(letterData => letterData.dataName == formData.dataName).dataValue);
+            })
+            
+            const pdf = makePdf(letterNumberToPrint, dateToPrint, letter.form.subject, letter.form.greeting, paragraphToPrint, letter.form.footer, letter.id)
+            setTimeout(()=>{
+                res.download(pdf);
+            },500)
+            
+        }else{
+            res.send(responseCodes.pageNotFound)
+        }
+        
+    })
 
     app.listen(port, ()=>{
         console.log('listening on port: ',port );
