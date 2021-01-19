@@ -1,9 +1,9 @@
 import { getConnection, getRepository } from "typeorm";
-import {Admin} from "./entity/Admin";
-import {Form} from "./entity/Form";
-import { FormData } from "./entity/FormData";
-import {Letter} from "./entity/Letter";
-import {LetterData} from "./entity/LetterData";
+// import {Admin} from "../src/entity/Admin";
+import {Form} from "../src/entity/Form";
+import { FormData } from "../src/entity/FormData";
+import {Letter} from "../src/entity/Letter";
+import {LetterData} from "../src/entity/LetterData";
 
 
 export const getAllForms = async () => {
