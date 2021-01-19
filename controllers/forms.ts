@@ -8,13 +8,8 @@ const getAllFormsController = async ( req, res ) => {
 
 
 const getFormDataController = async ( req, res ) => {
-    try{
-        const formData = await getFormData(req.params.id);
-        res.json(formData);
-    }catch(e){
-        res.send(responseCodes.pageNotFound)
-    }
-
+    const formData = await getFormData(req.params.id);
+    res.json(formData);
 }
 
 module.exports.getAllFormsController = getAllFormsController;

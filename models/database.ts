@@ -1,9 +1,10 @@
 import { getConnection, getRepository } from "typeorm";
-// import {Admin} from "../src/entity/Admin";
+import {Admin} from "../src/entity/Admin";
 import {Form} from "../src/entity/Form";
 import { FormData } from "../src/entity/FormData";
 import {Letter} from "../src/entity/Letter";
 import {LetterData} from "../src/entity/LetterData";
+import md5 = require('md5');
 
 
 export const getAllForms = async () => {
@@ -64,3 +65,12 @@ export const getLetter = async letterId => {
     return letter
 }
 
+export const getAdmin = async (username, password) => {
+    const admin = await getConnection()
+    .createQueryBuilder()
+    .select(['admin.id', 'admin.username', 'admin.level'])
+    .from(Admin,'admin')
+    .where(`admin.username = '${username}' and admin.password = '${md5(password)}'`)
+    .getOne();
+    return admin;
+}

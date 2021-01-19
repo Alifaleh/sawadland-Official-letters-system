@@ -8,5 +8,8 @@ export const responseCodes={
     permitionDenaied:'2002',
     unrecognizedEntry :'2003',
     invalidFormData:'2004',
-    pageNotFound:'2005'
+    pageNotFound:'2005',
+    notAuthorized:'2006',
+    notAuthenticated:'2007'
+
 }
