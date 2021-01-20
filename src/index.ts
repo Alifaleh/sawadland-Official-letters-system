@@ -5,6 +5,7 @@ import express = require('express');
 import cookieParser = require('cookie-parser');
 const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
+const pg = require('pg');
 
 const routes = require('../routes/routes');
 
@@ -19,36 +20,11 @@ const conObject = {
     database: process.env.DB_NAME
 };
 
-// console.log(conObject);
-
-
-// const pgStoreConfig = {
-//     pgPromise: require('pg-promise')({ promiseLib: require('bluebird') })({ conObject }), 
-//     tableName : 'session' 
-// }
-
-// // new pgSession({
-// //     pool : conObject,                // Connection pool
-// //     tableName : 'user_sessions'   // Use another table-name than the default "session" one
-// //   })
-
-// app.use(session({
-//         store: 'postgres://sawadland:sladmin@localhost:5432/sawadland_ols_db',
-//         secret: 'jW8aor76jpPX', 
-//         resave: true,
-//         saveUninitialized: true,
-//         cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days 
-//     })
-// );
-
-var pg = require('pg')
- 
-var pgPool = new pg.Pool(conObject);
  
 app.use(session({
   store: new pgSession({
-    pool : pgPool,                // Connection pool
-    tableName : 'session'   // Use another table-name than the default "session" one
+    pool : new pg.Pool(conObject),           
+    tableName : 'session'
   }),
   secret: 'test scrit',
   resave: false,
