@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Home
+        link(rel="stylesheet" href="/css/fontawesome.css")
+        link(rel="stylesheet" href="/css/ez-layout.css")
+        link(rel='stylesheet' href="/css/style.css")
+        block styles
+    body
+        div.ez-nav-bar
+            button.nav-button
+            a.nav-logo(href="/")
+                img(src="/images/layout/nav-logo.png", width='50', alt="")
+            a.nav-link(href="/")
+                button.nav-link-botton Home
+            
+            if isAuthenticated
+                a.nav-link(href="/dashboard")
+                    button.nav-link-botton Dashboard
+                button.nav-link.nav-botton.logout-button LogOut
+            else
+                a.nav-link(href="/login")
+                    button.nav-link-botton LogIn
+                a.nav-link(href="#")
+                    button.nav-link-botton SignUp
+            
+        div.ez-container.full-width.rb.content-holder
+            block content
+
+        
+        script(src="/js/response-codes.js")
+        script(src="/js/jQuery.js")
+        script(src="/js/ez-layout.js")
+        script(src="/js/nav-bar.js")
+        block scripts

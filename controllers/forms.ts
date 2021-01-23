@@ -3,13 +3,13 @@ import { responseCodes } from '../utils/response_codes'
 
 const getAllFormsController = async ( req, res ) => {
     const allForms = await getAllForms();
-    res.json(allForms);
+    res.send(allForms);
 }
 
 
 const getFormDataController = async ( req, res ) => {
     const formData = await getFormData(req.params.id);
-    res.json(formData);
+    res.send(formData.length==0?responseCodes.invalidFormId:formData);
 }
 
 module.exports.getAllFormsController = getAllFormsController;

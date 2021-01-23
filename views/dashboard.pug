@@ -1,0 +1,23 @@
+extends container.pug
+
+block styles
+
+
+block content
+    div.ez-row(class="css_height_100%_sm")
+        div.ez.bb.base-30-lg.css_display_none_sm.main-aa-center.cross-aa-center.css_display_flex_lg(class="css_height_100%_sm")
+            div test1
+        div.ez.bb.base-100-sm.base-70-lg.main-aa-center.cross-aa-center(class="css_height_100%_sm")
+            div.ez-col.main-aa-center.cross-aa-center(class="css_height_100%_sm")
+                div.ez-row.main-aa-center.cross-aa-center.base-20-sm
+                    select#form-selector
+                div.ez-col.cross-aa-center.main-aa-center.base-30-sm#formDataInputs
+                div.ez-row.base-20-sm.main-aa-center.cross-aa-center
+                    input#date(type='Date')
+                div.ez-row.main-aa-sp-ar.cross-aa-center.base-20-sm
+                    button#dashboard-submit add letter
+
+                
+
+block scripts
+    script(src="/js/dashboard.js")

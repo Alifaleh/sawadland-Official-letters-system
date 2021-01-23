@@ -18,13 +18,17 @@ export const getAllForms = async () => {
 
 
 export const getFormData = async (formId) => {
-    const formData = await getConnection()
-    .createQueryBuilder()
-    .select(['form_data.dataName'])
-    .from(FormData, 'form_data')
-    .where(`form_data.formId = '${formId}'`)
-    .getMany();
-    return formData;
+    try{
+        const formData = await getConnection()
+        .createQueryBuilder()
+        .select(['form_data.dataName'])
+        .from(FormData, 'form_data')
+        .where(`form_data.formId = '${formId}'`)
+        .getMany();
+        return formData;
+    }catch(e){
+        return []
+    }
 }
 
 

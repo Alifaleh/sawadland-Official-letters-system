@@ -1,0 +1,25 @@
+extends container.pug
+
+block styles
+
+
+block content
+    div.ez-row(class="css_height_100%_sm")
+        div.ez.bb.base-40-md.css_display_none_sm.main-aa-center.cross-aa-center.css_display_flex_md(class="css_height_100%_sm")
+            div.ez
+        div.ez.bb.base-100-sm.base-60-md.main-aa-center.cross-aa-center(class="css_height_100%_sm")
+            div.ez-col.cross-aa-center
+                img.css_max-width_300px_sm.css_max-width_400px_md(src="/images/layout/logo.png", alt="")
+                div.ez.main-aa-center.cross-aa-center.css_height_90px_sm.base_80_md.base_100_sm.css_display_none_sm.error-div
+                div.ez.main-aa-center
+                    input#username(type='text', name="", placeholder='username')
+                div.ez.main-aa-center
+                    input#password(type="password", name="", placeholder='password')
+                button.login-button Login
+    
+
+
+block scripts
+    script(src="/js/login.js")
+        
+

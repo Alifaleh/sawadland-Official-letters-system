@@ -3,6 +3,7 @@ import { createConnection } from "typeorm";
 import express = require('express');
 import cookieParser = require('cookie-parser');
 const { sessionHolder } = require('../models/sessionManager');
+import pug = require('pug');
 const routes = require('../routes/routes');
 
 const app = express();

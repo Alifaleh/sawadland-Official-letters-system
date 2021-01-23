@@ -1,4 +1,5 @@
 import express = require('express');
+import path = require('path');
 
 const router = express.Router();
 
@@ -18,10 +19,16 @@ router.post('/formdata/:id', authenticationMW.isAuthentecated, formsControllers.
 
 router.post('/addletter/:id', authenticationMW.isAuthentecated, lettersControllers.addLetterController);
 
+router.get('/dashboard',authenticationMW.isAuthentecated , viewsControllers.dashboardController)
+
 router.get('/getpdf/:letterId', authenticationMW.isAuthentecated, lettersControllers.getPdfController);
 
 router.post('/login',authenticationMW.isNotAuthentecated , adminControllers.loginController)
+router.get('/login',authenticationMW.isNotAuthentecated , viewsControllers.loginController)
+
 
 router.post('/logout', authenticationMW.isAuthentecated, adminControllers.logoutController)
+
+router.use(express.static(path.join(__dirname, '../global')));
 
 module.exports = router;
