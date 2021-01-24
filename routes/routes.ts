@@ -22,6 +22,7 @@ router.post('/addletter/:id', authenticationMW.isAuthentecated, lettersControlle
 router.get('/dashboard',authenticationMW.isAuthentecated , viewsControllers.dashboardController)
 
 router.get('/getpdf/:letterId', authenticationMW.isAuthentecated, lettersControllers.getPdfController);
+router.get('/download/:letterId',authenticationMW.isAuthentecated , viewsControllers.downloadControler)
 
 router.post('/login',authenticationMW.isNotAuthentecated , adminControllers.loginController)
 router.get('/login',authenticationMW.isNotAuthentecated , viewsControllers.loginController)

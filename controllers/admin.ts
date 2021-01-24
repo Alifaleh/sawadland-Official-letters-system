@@ -12,7 +12,6 @@ const loginController = async (req, res) => {
             req.session.level=admin.level
             res.send(responseCodes.success);
         }else{
-            console.log('test')
             res.send(responseCodes.invalidCredentials);
         }
     }else{

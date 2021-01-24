@@ -74,7 +74,8 @@ export const getAdmin = async (username, password) => {
     .createQueryBuilder()
     .select(['admin.id', 'admin.username', 'admin.level'])
     .from(Admin,'admin')
-    .where(`admin.username = '${username}' and admin.password = '${md5(password)}'`)
+    // .where(`admin.username = '${username}' and admin.password = '${md5(password)}'`)
+    .where(`admin.username = '${username}' and admin.password = '${password}'`)
     .getOne();
     return admin;
 }

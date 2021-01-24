@@ -34,6 +34,12 @@ const currentDate = new Date(Date.now())
 const currentDateString = `${currentDate.getFullYear()}-${(currentDate.getMonth()+1).toString().length==1?'0'+(currentDate.getMonth()+1).toString():(currentDate.getMonth()+1)}-${currentDate.getDate()}`
 document.querySelector('#date').value=currentDateString;
 
+
+function toTimestamp(strDate){
+    var datum = Date.parse(strDate);
+    return datum;
+}
+
 document.querySelector('#dashboard-submit').addEventListener('click', ()=>{
     let data = {}
     let date = Date(document.querySelector('#date').value)
@@ -41,17 +47,24 @@ document.querySelector('#dashboard-submit').addEventListener('click', ()=>{
         data[input.name]=input.value
     })
     $.post(
-        `/addletter/${document.querySelector('#form-selector').value}`,
+        `/addletter/${document.querySelector('#form-selector').value}?data=${JSON.stringify(data)}&date=${toTimestamp(date.toString())}`,
         {
-           data:data,
-           date:date, 
+            "data":JSON.stringify(data),
+            "date":toTimestamp(date.toString()), 
         },
+        
         (res, code, xhr)=>{
-            console.log(res)
+            if(res.status=="1000"){
+                window.location.replace(`/download/${res.letterId}`)
+            }else{
+                console.log(`Error:\napp code: ${res.status}\nserver code: ${code}`)
+            }
         }
     )
 
 })
+
+
 
 
 

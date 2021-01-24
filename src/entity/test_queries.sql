@@ -7,8 +7,10 @@ VALUES
     'مد كابل ضوئي',
     ' تهديكم شركة ارض السواد لتكنولوجيا المعلومات وخدمات الانترنت أطيب تحياتها...',
     'و ترجو التفضل بالموافقة على مد كابل ضوئي في محافظة {{city}} و تخصيص شعيرات عدد {{fiberOpticNumber}} الى موقع مكتبنا و حسب الاحداثيات المدرجة أدناه :
-E {{latitude}}
-M {{longitude}}
+<br>
+{{latitude}} E
+<br>
+{{longitude}} M
 ',
     'شاكرين تعاونكم معنا...'
     ),
@@ -27,7 +29,7 @@ M {{longitude}}
 (
     'زيادة سعة محلية',
     ' تهديكم شركة ارض السواد لتكنولوجيا المعلومات وخدمات الانترنت أطيب تحياتها...',
-    'يرجى التفضل  بالموافقة  على زيادة سعة محلية في محافظة ميسان و مقدارها {{incrementAmount}} و على  مسار  {{path}} و المحمولة على {{port}} لتصبح السعة {{afterIncrement}} بدلا" عن {{beforeIncrement} و ذلك لحاجتنا لهذه السعات.',
+    'يرجى التفضل  بالموافقة  على زيادة سعة محلية في محافظة ميسان و مقدارها {{incrementAmount}} و على  مسار  {{path}} و المحمولة على {{port}} لتصبح السعة {{afterIncrement}} بدلا" عن {{beforeIncrement}} و ذلك لحاجتنا لهذه السعات.',
     'شاكرين تعاونكم معنا...'
     );
 
@@ -37,7 +39,7 @@ VALUES
 ('city',(select id FROM "form" WHERE "subject" = 'مد كابل ضوئي')),
 ('longitude',(select id FROM "form" WHERE "subject" = 'مد كابل ضوئي')),
 ('latitude',(select id FROM "form" WHERE "subject" = 'مد كابل ضوئي')),
-('FiberOpticsNumber',(select id FROM "form" WHERE "subject" = 'مد كابل ضوئي'));
+('fiberOpticNumber',(select id FROM "form" WHERE "subject" = 'مد كابل ضوئي'));
 
 -- تقليل سعة محلية
 INSERT INTO "form_data" ("dataName", "formId")
@@ -67,3 +69,7 @@ VALUES
 ('port',(select id FROM "form" WHERE "subject" = 'زيادة سعة محلية')),
 ('path', (select id FROM "form" WHERE "subject" = 'زيادة سعة محلية'));
 
+
+
+insert into "admin"("username", "password", "level")
+values('ali', '123', 0)
