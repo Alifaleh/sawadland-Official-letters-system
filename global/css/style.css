@@ -1,0 +1,274 @@
+@font-face {
+    font-family: "dubai";
+    src: url("/fonts/Dubai-Regular.ttf");
+}
+
+*{
+    outline-width: 0px;
+}
+*:hover{
+    outline-width: 0px;
+}
+*:active{
+    outline-width: 0px;
+}
+
+.nav__nav-bar{
+    height: 70px;
+    border-bottom: 2px solid #43DEAF;
+}
+.button__nav-bar{
+    border:1.5px solid #43DEAF;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    color: #43DEAF;
+    font-size: 0.9rem;
+    transition: 300ms all ease-in-out;
+    padding: 8px 16px; 
+}
+
+.nav-button{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #43DEAF;
+    border-radius: 7px;
+    transition:300ms all ease-in-out;
+}
+
+.nav-button:hover{
+    background-color: #43DEAF;
+}
+
+.nav-button:hover .nav-button-icon__nav-bar{
+    color: black;
+}
+
+.button__nav-bar:hover{
+    background-color: #43DEAF;
+    color: #000;
+}
+
+.button__nav-bar:hover{
+    background-color: #43DEAF;
+    color: #000;
+}
+
+.nav-button-icon__nav-bar{
+    font-size: 30px;
+    color: #43DEAF;
+    transition:300ms all ease-in-out;
+}
+
+.main__home{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/layout/home-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text__home{
+    width: 450px;
+    text-align: right;
+    font-size: 8rem;
+    font-weight: 600;
+    color: white;
+    font-family: "dubai";
+}
+
+.form-selector__dashboard{
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.form-selector__dashboard select{
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: 200px;
+}
+
+.form-selector__dashboard select option{
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+
+.form-data__dashboard{
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.form-data__dashboard input{
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    direction: rtl;
+}
+
+.date-input__dashboard{
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    margin-top: 10px;
+}
+
+
+
+.date-input__dashboard input{
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+
+.add-letter__dashboard{
+    width: 250px;
+    height: 70px;
+    border: 2px solid #43DEAF;
+    background-color: rgba(0, 0, 0, 0);
+    color: #43DEAF;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 2rem;
+    transition: 300ms all ease-in-out;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.add-letter__dashboard:hover{
+    position: relative;
+    top: -10px;
+    left: -10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    background-color: #43DEAF;
+    color: white;
+}
+
+.dashboard-side__dashboard{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/layout/dashboard-side.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.buttons__download{
+    width: 250px;
+    height: 70px;
+    border: 2px solid #43DEAF;
+    background-color: rgba(0, 0, 0, 0);
+    color: #43DEAF;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 2rem;
+    transition: 300ms all ease-in-out;
+    margin: 40px;
+}
+
+.buttons__download:hover{
+    position: relative;
+    top: -10px;
+    left: -10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    background-color: #43DEAF;
+    color: white;
+}
+
+.download-side__download{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/layout/download-side.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-side__login{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/layout/login-side.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form-input__login{
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+
+.form-input__login input{
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    direction: rtl;
+}
+
+
+.buttons__login{
+    width: 250px;
+    height: 70px;
+    border: 2px solid #43DEAF;
+    background-color: rgba(0, 0, 0, 0);
+    color: #43DEAF;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 2rem;
+    transition: 300ms all ease-in-out;
+    margin: 40px;
+}
+
+.buttons__login:hover{
+    position: relative;
+    top: -10px;
+    left: -10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    background-color: #43DEAF;
+    color: white;
+}
+
+
+.text__login{
+    font-size: 5rem;
+    text-align: right;
+    font-family: "dubai";
+    color: #43DEAF;
+}
+
+.error-div__login{
+    margin: 30px;
+    display: none;
+    width: 300px;
+    height: 200px;
+    background-color: rgba(173, 32, 32, 0.5);
+    border: 2px solid  rgb(173, 32, 32);
+    border-radius: 10px;
+    color:  rgb(173, 32, 32);
+    font-size: 2rem;
+}

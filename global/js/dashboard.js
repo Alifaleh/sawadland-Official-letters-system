@@ -1,10 +1,25 @@
 
+const placeHolders = {
+    'city':'المدينة',
+    'longitude':'خط الطول',
+    'latitude':'خط العرض',
+    'fiberOpticNumber':'عدد شعيرات الكابل',
+    'decrementAmount':'مقدار التقليل',
+    'beforeDecrement':'قبل التقليل',
+    'afterDecrement':'بعد التقليل',
+    'path':'المسار',
+    'incrementAmount':'مقدار الزيادة',
+    'beforeIncrement':'قبل الزيادة',
+    'afterIncrement':'بعد الزيادة',
+    'port':'المنفذ'
+}
+
 $.ajax({
     url:'/allforms',
     type:'POST',
     success: (res, code, xhr)=>{
         document.querySelector('#form-selector').innerHTML='';
-        let formSelectorContent = "<option disabled selected>Select Form</option>";
+        let formSelectorContent = "<option disabled selected>إختر كتاباً</option>";
         res.forEach((form)=>{
             formSelectorContent=formSelectorContent+`<option value="${form.id}">${form.subject}</option>`
         })
@@ -21,7 +36,9 @@ document.querySelector('#form-selector').addEventListener('change', ()=>{
             document.querySelector('#formDataInputs').innerHTML='';
             let formDataInputs = "";
             res.forEach((formInput)=>{
-                formDataInputs=formDataInputs+`<input class='formDataInput' name='${formInput.dataName}' type="text" placeholder="${formInput.dataName}">`
+                let formInputDataName=formInput.dataName;
+                formInputDataName=formInputDataName.toString();
+                formDataInputs=formDataInputs+`<div class="form-data__dashboard"><input class='formDataInput' name='${formInputDataName}' type="text" placeholder="${placeHolders[formInputDataName]}"></div>`
             })
             document.querySelector('#formDataInputs').innerHTML=formDataInputs;
         }

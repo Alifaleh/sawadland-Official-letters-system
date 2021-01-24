@@ -9,24 +9,25 @@ html(lang="en")
         link(rel='stylesheet' href="/css/style.css")
         block styles
     body
-        div.ez-nav-bar
+        div.ez-nav-bar.nav__nav-bar.fixed-nav
             button.nav-button
+                i.fal.fa-acorn.nav-button-icon__nav-bar.nav-button-icon
             a.nav-logo(href="/")
-                img(src="/images/layout/nav-logo.png", width='50', alt="")
+                img(src="/images/layout/nav-logo.jpg", width='50', alt="")
             a.nav-link(href="/")
-                button.nav-link-botton Home
+                button.nav-link-botton.button__nav-bar Home
             
             if isAuthenticated
                 a.nav-link(href="/dashboard")
-                    button.nav-link-botton Dashboard
-                button.nav-link.nav-botton.logout-button LogOut
+                    button.nav-link-botton.button__nav-bar Dashboard
+                button.nav-link.nav-botton.logout-button.button__nav-bar LogOut
             else
                 a.nav-link(href="/login")
-                    button.nav-link-botton LogIn
+                    button.nav-link-botton.button__nav-bar LogIn
                 a.nav-link(href="#")
-                    button.nav-link-botton SignUp
+                    button.nav-link-botton.button__nav-bar SignUp
             
-        div.ez-container.full-width.rb.content-holder
+        div.ez-container.full-width.content-holder
             block content
 
         

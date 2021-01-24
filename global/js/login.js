@@ -14,6 +14,7 @@ $('.login-button').on("click", ()=>{
                 window.location.replace("/dashboard");
             }else{
                 console.log('Error:\n',`app code: ${res}\n`,`server code: ${code}`);
+                document.querySelector(".error-div__login").style.display = "flex";
             }
         }
     )
