@@ -32,12 +32,12 @@ export const getFormData = async (formId) => {
 }
 
 
-export const addLetter = async (data,date,formId) => {
+export const addLetter = async (data,date,formId,adminId) => {
     const addedLetter = await getConnection()
     .createQueryBuilder()
     .insert()
     .into(Letter)
-    .values([{Date:date, signature:'', form:formId}])
+    .values([{Date:date, signature:'', admin:adminId, form:formId}])
     .returning("id")
     .execute();
     const addedLetterId = addedLetter.identifiers[0].id;
@@ -74,8 +74,8 @@ export const getAdmin = async (username, password) => {
     .createQueryBuilder()
     .select(['admin.id', 'admin.username', 'admin.level'])
     .from(Admin,'admin')
-    // .where(`admin.username = '${username}' and admin.password = '${md5(password)}'`)
-    .where(`admin.username = '${username}' and admin.password = '${password}'`)
+    .where(`admin.username = '${username}' and admin.password = '${md5(password)}'`)
+    // .where(`admin.username = '${username}' and admin.password = '${password}'`)
     .getOne();
     return admin;
 }

@@ -52,24 +52,14 @@ const currentDateString = `${currentDate.getFullYear()}-${(currentDate.getMonth(
 document.querySelector('#date').value=currentDateString;
 
 
-function toTimestamp(strDate){
-    var datum = Date.parse(strDate);
-    return datum;
-}
-
 document.querySelector('#dashboard-submit').addEventListener('click', ()=>{
     let data = {}
-    let date = Date(document.querySelector('#date').value)
+    let date = Date.parse(document.querySelector('#date').value);
     document.querySelectorAll('.formDataInput').forEach((input)=>{
         data[input.name]=input.value
     })
     $.post(
-        `/addletter/${document.querySelector('#form-selector').value}?data=${JSON.stringify(data)}&date=${toTimestamp(date.toString())}`,
-        {
-            "data":JSON.stringify(data),
-            "date":toTimestamp(date.toString()), 
-        },
-        
+        `/addletter/${document.querySelector('#form-selector').value}?data=${JSON.stringify(data)}&date=${date}`,
         (res, code, xhr)=>{
             if(res.status=="1000"){
                 window.location.replace(`/download/${res.letterId}`)
