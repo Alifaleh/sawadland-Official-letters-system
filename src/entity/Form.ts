@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import { Letter } from "./Letter";
 import { FormData } from "./FormData";
 
@@ -19,6 +19,9 @@ export class Form {
 
     @Column()
     footer: string;
+
+    @Column()
+    type: string;
 
     @OneToMany(type => Letter, letter => letter.form)
     letters:Letter[];

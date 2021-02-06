@@ -17,7 +17,7 @@ const addLetterController = async ( req, res) =>{
         }
     })
     if(validData){
-        const addedLetter = await addLetter(newData, date, req.params.id, req.session.adminId);
+        const addedLetter = await addLetter(newData, date, req.params.id, req.session.adminId, req.query.pathId);
 
         res.send({status:responseCodes.success, letterId:addedLetter});
     }else{

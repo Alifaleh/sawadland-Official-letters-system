@@ -17,6 +17,8 @@ router.post('/allforms', authenticationMW.isAuthentecated, formsControllers.getA
 
 router.post('/formdata/:id', authenticationMW.isAuthentecated, formsControllers.getFormDataController);
 
+router.post('/formpaths/:id', authenticationMW.isAuthentecated, formsControllers.getFormPathsController);
+
 router.post('/addletter/:id', authenticationMW.isAuthentecated, lettersControllers.addLetterController);
 
 router.get('/dashboard',authenticationMW.isAuthentecated , viewsControllers.dashboardController)

@@ -111,6 +111,34 @@
 }
 
 
+
+.path-selector__dashboard{
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.path-selector__dashboard select{
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 400;
+    width:294px;
+}
+
+.path-selector__dashboard select option{
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+
 .form-data__dashboard{
     border: 3px solid #333;
     border-radius: 10px;
