@@ -1,0 +1,25 @@
+extends container.pug
+
+block styles
+
+
+block content
+    div.ez-row(class="css_height_100%_sm")
+        div.ez.base-30-md.css_display_none_sm.main-aa-center.cross-aa-center.css_display_flex_md.login-side__signup(class="css_height_100%_sm")
+            .ez.main-aa-center.cross-aa-center.text__login بلدنا<br> بصمتنا
+        div.ez.base-100-sm.base-70-md.main-aa-center.cross-aa-center(class="css_height_100%_sm")
+            div.ez-col.cross-aa-center
+                img.css_max-width_300px_sm.css_max-width_400px_md(src="/images/layout/logo.png", alt="")
+                div.ez.main-aa-center.cross-aa-center.css_height_90px_sm.base_80_md.base_100_sm.error-div__login المعلومات خاطئة
+                div.ez.main-aa-center.form-input__login
+                    input#username(type='text', name="", placeholder='إسم المستخدم')
+                div.ez.main-aa-center.form-input__login
+                    input#password(type="password", name="", placeholder='كلمة المرور')
+                button.signup-button.buttons__login إنشاء حساب
+    
+
+
+block scripts
+    script(src="/js/signup.js")
+        
+

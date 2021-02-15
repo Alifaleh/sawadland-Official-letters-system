@@ -13,21 +13,28 @@ const validationMW       = require('../controllers/middleware/validation');
 
 router.get('/', viewsControllers.homeControler);
 
-router.post('/allforms', authenticationMW.isAuthentecated, formsControllers.getAllFormsController);
+router.post('/allforms', authenticationMW.isAuthentecated, authorizationMw.level2, formsControllers.getAllFormsController);
 
-router.post('/formdata/:id', authenticationMW.isAuthentecated, formsControllers.getFormDataController);
+router.post('/formdata/:id', authenticationMW.isAuthentecated, authorizationMw.level2, formsControllers.getFormDataController);
 
-router.post('/formpaths/:id', authenticationMW.isAuthentecated, formsControllers.getFormPathsController);
+router.post('/formpaths/:id', authenticationMW.isAuthentecated, authorizationMw.level2, formsControllers.getFormPathsController);
 
-router.post('/addletter/:id', authenticationMW.isAuthentecated, lettersControllers.addLetterController);
+router.post('/addletter/:id', authenticationMW.isAuthentecated, authorizationMw.level2, lettersControllers.addLetterController);
 
-router.get('/dashboard',authenticationMW.isAuthentecated , viewsControllers.dashboardController)
+router.get('/dashboard',authenticationMW.isAuthentecated, authorizationMw.level2, viewsControllers.dashboardController)
 
-router.get('/getpdf/:letterId', authenticationMW.isAuthentecated, lettersControllers.getPdfController);
-router.get('/download/:letterId',authenticationMW.isAuthentecated , viewsControllers.downloadControler)
+router.get('/getpdf/:letterId', authenticationMW.isAuthentecated, authorizationMw.level2, lettersControllers.getPdfController);
+router.get('/download/:letterId',authenticationMW.isAuthentecated, authorizationMw.level2, viewsControllers.downloadControler)
+
+router.post('/accountmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, viewsControllers.accountManagementController)
+router.get('/accountmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, adminControllers.accountManagementController)
+
 
 router.post('/login',authenticationMW.isNotAuthentecated , adminControllers.loginController)
 router.get('/login',authenticationMW.isNotAuthentecated , viewsControllers.loginController)
+
+router.post('/signup',authenticationMW.isNotAuthentecated , adminControllers.signupController)
+router.get('/signup',authenticationMW.isNotAuthentecated , viewsControllers.signupController)
 
 
 router.post('/logout', authenticationMW.isAuthentecated, adminControllers.logoutController)

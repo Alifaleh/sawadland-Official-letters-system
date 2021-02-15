@@ -125,9 +125,15 @@
     background-color: rgba(0, 0, 0, 0);
     border-width: 0px;
     color: #333;
-    font-size: 1.5rem;
+    font-size: 1.09rem;
     font-weight: 400;
     width:294px;
+}
+
+.disabled-option{
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
 .path-selector__dashboard select option{
@@ -245,6 +251,16 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+.login-side__signup{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/layout/signup.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 
 .form-input__login{
     border: 3px solid #333;

@@ -76,8 +76,8 @@ VALUES
 
 
 
-insert into "admin"("username", "password", "level")
-values('ali', '202cb962ac59075b964b07152d234b70', 0);
+insert into "admin"("username", "password", "level", "verifyed")
+values('ali', '202cb962ac59075b964b07152d234b70', 0, 'true');
 
 
 

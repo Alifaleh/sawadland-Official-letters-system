@@ -127,9 +127,26 @@ export const getLetter = async letterId => {
 export const getAdmin = async (username, password) => {
     const admin = await getConnection()
     .createQueryBuilder()
-    .select(['admin.id', 'admin.username', 'admin.level'])
+    .select(['admin.id', 'admin.username', 'admin.level', 'admin.verifyed'])
     .from(Admin,'admin')
     .where(`admin.username = '${username}' and admin.password = '${md5(password)}'`)
     .getOne();
     return admin;
 }
+
+
+export const signup = async (username, password) => {
+    await getConnection()
+    .createQueryBuilder()
+    .insert()
+    .into(Admin)
+    .values({
+        username:username,
+        password:md5(password),
+        level:2,
+        verifyed:false,
+    })
+    .execute();
+}
+
+

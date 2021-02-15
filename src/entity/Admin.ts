@@ -16,6 +16,9 @@ export class Admin {
     @Column()
     level: number;
 
+    @Column()
+    verifyed: boolean;
+
     @OneToMany(type => Letter, letter => letter.admin)
     letters : Letter[];
 

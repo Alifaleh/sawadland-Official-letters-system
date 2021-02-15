@@ -54,7 +54,7 @@ document.querySelector('#form-selector').addEventListener('change', ()=>{
                             success: (res, code, xhr)=>{
                                 paths = res;
                                 let pathSelector = document.querySelector('.path-selector__dashboard select');
-                                let pathSelectorContent = '<option disabled selected>المسار</option>'
+                                let pathSelectorContent = '<option class="disabled-option" disabled selected>المسار</option>'
                                 res.forEach(data => {
                                     stringPaths.push(`(${data.from} ${data.from_ps} - ${data.to} ${data.to_ps})`);
                                     pathSelectorContent = pathSelectorContent + `<option value = "(${data.from} ${data.from_ps} - ${data.to} ${data.to_ps})">(${data.from} ${data.from_ps} - ${data.to} ${data.to_ps})</option>`

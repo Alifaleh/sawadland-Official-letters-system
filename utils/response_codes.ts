@@ -12,4 +12,6 @@ export const responseCodes={
     notAuthorized:'2006',
     notAuthenticated:'2007',
     invalidFormId:'2008',
+    userAlreadyExistes: '2009',
+    unverifyedAccount: '2010',
 }
