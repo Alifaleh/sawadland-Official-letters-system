@@ -1,4 +1,4 @@
-import { getAdmin, signup } from '../models/database';
+import { getAdmin, signup, getAllUsers } from '../models/database';
 import { responseCodes } from '../utils/response_codes';
 
 
@@ -45,7 +45,16 @@ const logoutController = async (req, res) => {
 
 
 const accountManagementController = async (req, res) => {
-    res.send('accountManagement')
+    if(req.query.type == 1){
+        const allUsers = await getAllUsers();
+        res.send(allUsers);}
+    // }else if(req.query.type == 2){
+    //     const userInfo = await getUserInfo(req.query.userId);
+    //     res.send(userInfo);
+    // }else if(req.query.type == 3){
+    //     await setUserInfo(req.query.userInfo);
+    //     res.send(responseCodes.success)
+    // }
 }
 
 

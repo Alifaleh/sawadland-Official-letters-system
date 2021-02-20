@@ -2,8 +2,11 @@ import "dotenv/config";
 import session = require('express-session');
 import pg = require('pg');
 const pgSession = require('connect-pg-simple')(session);
+import { connection } from "../models/database";
 
-const conObject = {
+
+
+export const conObject = {
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     host:  process.env.DB_HOST,

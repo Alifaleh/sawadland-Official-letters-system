@@ -26,8 +26,8 @@ router.get('/dashboard',authenticationMW.isAuthentecated, authorizationMw.level2
 router.get('/getpdf/:letterId', authenticationMW.isAuthentecated, authorizationMw.level2, lettersControllers.getPdfController);
 router.get('/download/:letterId',authenticationMW.isAuthentecated, authorizationMw.level2, viewsControllers.downloadControler)
 
-router.post('/accountmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, viewsControllers.accountManagementController)
-router.get('/accountmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, adminControllers.accountManagementController)
+router.get('/accountmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, viewsControllers.accountManagementController)
+router.post('/accountmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, adminControllers.accountManagementController)
 
 
 router.post('/login',authenticationMW.isNotAuthentecated , adminControllers.loginController)

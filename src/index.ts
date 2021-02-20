@@ -1,8 +1,9 @@
 import "reflect-metadata";
 import { createConnection } from "typeorm";
+import { connection } from "../models/database";
 import express = require('express');
 import cookieParser = require('cookie-parser');
-const { sessionHolder } = require('../models/sessionManager');
+const { sessionHolder, conObject } = require('../models/sessionManager');
 const routes = require('../routes/routes');
 
 const app = express();

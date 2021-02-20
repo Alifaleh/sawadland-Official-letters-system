@@ -58,10 +58,6 @@
     color: #000;
 }
 
-.button__nav-bar:hover{
-    background-color: #43DEAF;
-    color: #000;
-}
 
 .nav-button-icon__nav-bar{
     font-size: 30px;
@@ -216,6 +212,14 @@
     background-size: cover;
 }
 
+
+.accounts-side__accounts{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/layout/accounts.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .buttons__download{
     width: 250px;
     height: 70px;
@@ -325,3 +329,40 @@
     color:  rgb(173, 32, 32);
     font-size: 2rem;
 }
+
+
+.accounts-container__accounts{
+    overflow-y: auto;
+    max-height: calc(100vh - 70px);
+    padding: 30px;
+}
+
+.account-holder__accounts{
+    border: #000 1px solid;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: #ccc 1px 1px 1px 1px;
+    padding: 10px 30px;
+}
+
+.account-holder__accounts h1{
+    color:#333;
+    font-size: 28;
+}
+
+.account-holder__accounts button{
+    border:1.5px solid #43DEAF;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    color: #43DEAF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 300ms all ease-in-out;
+    padding: 8px 16px; 
+}
+
+.account-holder__accounts button:hover{
+    background-color: #43DEAF;
+    color: white;
+}
+

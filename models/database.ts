@@ -1,4 +1,4 @@
-import { getConnection, getRepository } from "typeorm";
+import { getConnection } from "typeorm";
 import {Admin} from "../src/entity/Admin";
 import {Form} from "../src/entity/Form";
 import { FormData } from "../src/entity/FormData";
@@ -6,7 +6,27 @@ import {Letter} from "../src/entity/Letter";
 import {LetterData} from "../src/entity/LetterData";
 import {Path} from "../src/entity/Path";
 import md5 = require('md5');
-import { print } from "util";
+import "dotenv/config";
+
+
+type connectionOptions = {
+    type:any,
+    host:any,
+    username: any,
+    database: any,
+    password: any,
+    port: any,
+}
+
+export const connection : connectionOptions = {
+    type: process.env.DB_TYPE,
+    host: process.env.DB_HOST,
+    username: process.env.DB_USERNAME,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: parseInt(process.env.DB_PORT),
+}
+
 
 
 export const getAllForms = async () => {
@@ -149,4 +169,12 @@ export const signup = async (username, password) => {
     .execute();
 }
 
-
+export const getAllUsers = async () => {
+    const allUsers = await getConnection()
+    .createQueryBuilder()
+    .select(['id', 'username'])
+    .from(Admin,'admin')
+    .where('admin.level > 0')
+    .getRawMany()
+    return allUsers;
+}
