@@ -1,5 +1,7 @@
 
-$('.login-button').on("click", ()=>{
+document.querySelector('.login-button').addEventListener("click", ()=>{
+    console.log("clicked")
+
     const username = $('#username')[0].value;
     const password = $('#password')[0].value;
     $.post(
@@ -10,6 +12,7 @@ $('.login-button').on("click", ()=>{
         },
         
         (res, code, xhr)=>{
+            console.log(res)
             if(res == "1000"){
                 window.location.replace("/dashboard");
             }else if(res == "2010"){
