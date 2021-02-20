@@ -13,35 +13,35 @@ html(lang="en")
             button.nav-button
                 i.fal.fa-acorn.nav-button-icon__nav-bar.nav-button-icon
             a.nav-logo(href="/")
-                img(src="/images/layout/nav-logo.jpg", width='50', alt="")
+                img(src="/images/layout/nav-logo.png", width='50', alt="")
                 
 
-            if accoutnLevel < 3
-                //- for all
-                a.nav-link(href="/")
-                    button.nav-link-botton.button__nav-bar Home
-                //- end for all
-                if isAuthenticated
-                    //- for all authentecated
-                    a.nav-link(href="/dashboard")
-                        button.nav-link-botton.button__nav-bar Dashboard
-                    //- end for all authentecated
-                    if accoutnLevel < 2
-                        //- for admins
-                        a.nav-link(href="/accountmanagement")
-                            button.nav-link-botton.button__nav-bar Accounts
-                        //- end for admins
 
-                    if accoutnLevel < 1
-                        //- for programmer
+            //- for all
+            a.nav-link(href="/")
+                button.nav-link-botton.button__nav-bar Home
+            //- end for all
+            if isAuthenticated
+                //- for all authentecated
+                a.nav-link(href="/dashboard")
+                    button.nav-link-botton.button__nav-bar Dashboard
+                //- end for all authentecated
+                if accoutnLevel < 2
+                    //- for admins
+                    a.nav-link(href="/accountmanagement")
+                        button.nav-link-botton.button__nav-bar Accounts
+                    //- end for admins
 
-                        //- end for programmer
-                    button.nav-link.nav-botton.logout-button.button__nav-bar LogOut
-                else
-                    a.nav-link(href="/login")
-                        button.nav-link-botton.button__nav-bar LogIn
-                    a.nav-link(href="/signup")
-                        button.nav-link-botton.button__nav-bar SignUp
+                if accoutnLevel < 1
+                    //- for programmer
+
+                    //- end for programmer
+                button.nav-link.nav-botton.logout-button.button__nav-bar LogOut
+            else
+                a.nav-link(href="/login")
+                    button.nav-link-botton.button__nav-bar LogIn
+                a.nav-link(href="/signup")
+                    button.nav-link-botton.button__nav-bar SignUp
             
         div.ez-container.full-width.content-holder
             block content
