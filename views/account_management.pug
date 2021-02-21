@@ -4,6 +4,25 @@ block styles
 
 
 block content
+    div.ez.user-info-popup-background.main-aa-center.cross-aa-center
+        div.ez.user-info-popup.base-100-sm.base-50-lg.base-40-xl.wrap.main-aa-center
+            div.ez-row.base-100-sm.main-aa-end
+                i.exit-button(class="fal fa-times")
+            div.user-info-popup-input.base-100-sm.base-80-md.base-60-lg
+                input(type="text")
+            div.ez-row.base-100-sm.main-aa-center
+                p.user-info-popup-error
+            div.user-info-popup-input.base-100-sm.base-80-md.base-60-lg
+                select.type-selector(name="type")
+                    Option(selected, disabled) Account type
+                    option(value="2") User 
+                    option(value="1") Admin 
+            div.user-info-popup-input.base-100-sm.base-80-md.base-60-lg
+                select.verification-selector(name="isverified")
+                    option(value="false") Not verified 
+                    option(value="true") Verified
+            button.base-100-sm.base-80-md.base-60-lg Save
+
     div.ez-row(class="css_height_100%_sm")
         div.ez.base-30-lg.css_display_none_sm.main-aa-center.cross-aa-center.css_display_flex_lg.accounts-side__accounts(class="css_height_100%_sm")
             img.css_max-width_300px_sm.css_max-width_300px_md.css_margin_20px_sm(src="/images/layout/logo-w.png", alt="")

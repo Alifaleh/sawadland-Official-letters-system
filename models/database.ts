@@ -178,3 +178,35 @@ export const getAllUsers = async () => {
     .getRawMany()
     return allUsers;
 }
+
+
+export const getUserInfo = async (userId) => {
+    const userInfo = await getConnection()
+    .createQueryBuilder()
+    .select(["id", "username", "level", "verifyed"])
+    .from(Admin, "admin")
+    .where(`admin.id = '${userId}'`)
+    .getRawOne()
+
+    return userInfo;
+}
+
+export const setUserInfo = async (userInfo) => {
+    const validator = await getConnection()
+    .createQueryBuilder()
+    .select()
+    .from(Admin, 'admin')
+    .where(`admin.id != '${userInfo.selectedId}' and admin.username = '${userInfo.username}'`)
+    .getRawMany();
+    if(validator.length == 0){
+        await getConnection()
+        .createQueryBuilder()
+        .update(Admin)
+        .set({username:userInfo.username, level:userInfo.level, verifyed:userInfo.isverified})
+        .where(`admin.id = '${userInfo.selectedId}'`)
+        .execute()
+        return 0
+    }else{
+        return 1
+    }
+}

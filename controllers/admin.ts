@@ -1,4 +1,4 @@
-import { getAdmin, signup, getAllUsers } from '../models/database';
+import { getAdmin, signup, getAllUsers, getUserInfo, setUserInfo } from '../models/database';
 import { responseCodes } from '../utils/response_codes';
 
 
@@ -47,14 +47,26 @@ const logoutController = async (req, res) => {
 const accountManagementController = async (req, res) => {
     if(req.query.type == 1){
         const allUsers = await getAllUsers();
-        res.send(allUsers);}
-    // }else if(req.query.type == 2){
-    //     const userInfo = await getUserInfo(req.query.userId);
-    //     res.send(userInfo);
-    // }else if(req.query.type == 3){
-    //     await setUserInfo(req.query.userInfo);
-    //     res.send(responseCodes.success)
-    // }
+        res.send(allUsers);
+    }else if(req.query.type == 2){
+        const userInfo = await getUserInfo(req.query.userId);
+        res.send(userInfo);
+    }else if(req.query.type == 3){
+        const JsonUserInfo = req.query.userInfo;
+        const userInfo = JSON.parse(JsonUserInfo);
+        if (userInfo.isverified == "true"){
+            userInfo.isverified = true;
+        }else{
+            userInfo.isverified = false;
+        }
+        userInfo.level = parseInt(userInfo.level)
+        const validator = await setUserInfo(userInfo);
+        if(validator == 0){
+            res.send(responseCodes.success)
+        }else if (validator == 1){
+            res.send(responseCodes.userAlreadyExistes)
+        }
+    }
 }
 
 
