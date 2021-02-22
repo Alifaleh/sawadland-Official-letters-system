@@ -1,4 +1,4 @@
-import { getAdmin, signup, getAllUsers, getUserInfo, setUserInfo } from '../models/database';
+import { getAdmin, signup, getAllUsers, getUserInfo, setUserInfo, getAllPaths, getPathInfo, updatePath, addPath, deletePath } from '../models/database';
 import { responseCodes } from '../utils/response_codes';
 
 
@@ -69,8 +69,30 @@ const accountManagementController = async (req, res) => {
     }
 }
 
+const pathManagementControler = async (req, res) => {
+    if(req.query.type == 1){
+        const allPaths = await getAllPaths();
+        res.send(allPaths);
+    }else if (req.query.type == 2){
+        const pathInfo = await getPathInfo(req.query.pathId)
+        res.send(pathInfo)
+    }else if (req.query.type == 3){
+        const pathInfo = JSON.parse(req.query.pathInfo)
+        await updatePath(pathInfo)
+        res.send(responseCodes.success)
+    }else if (req.query.type == 4){
+        const pathInfo = JSON.parse(req.query.pathInfo)
+        await addPath(pathInfo);
+        res.send(responseCodes.success);
+    }else if (req.query.type == 5){
+        await deletePath(req.query.pathId);
+        res.send(responseCodes.success)
+    }
+}
+
 
 module.exports.loginController = loginController;
 module.exports.logoutController = logoutController;
 module.exports.signupController = signupController;
 module.exports.accountManagementController = accountManagementController;
+module.exports.pathManagementControler = pathManagementControler;

@@ -445,3 +445,148 @@
     font-size: 18px;
     color: red;
 }
+
+
+.paths-side__paths{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/layout/paths.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.paths-container__paths{
+    overflow-y: auto;
+    max-height: calc(100vh - 70px);
+    padding: 30px;
+}
+
+.path-holder__paths{
+    border: #000 1px solid;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: #ccc 1px 1px 1px 1px;
+    padding: 10px 20px;
+}
+
+
+.path-holder__paths h1{
+    color:#333;
+    font-size: 28;
+}
+
+.path-holder__paths button{
+    border:1.5px solid #43DEAF;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    color: #43DEAF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 300ms all ease-in-out;
+    padding: 8px 16px; 
+}
+
+.path-holder__paths button:hover{
+    background-color: #43DEAF;
+    color: white;
+}
+
+
+
+.path-info-popup-background{
+    display: flexbox;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+
+.path-info-popup{
+    height: 400px;
+    background-color: white;
+    box-shadow: #333 2px 2px 2px 2px;
+    border-radius: 2px;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.path-info-popup-input{
+    height: 50px;
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.path-info-popup-input input{
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+    padding: 0px 10px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    border: 0px black solid;
+    color: #333;
+}
+
+.path-info-popup-input select{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    border: 0px black solid;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+
+.path-info-popup button{
+    border:1.5px solid #43DEAF;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    color: #43DEAF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 300ms all ease-in-out;
+    padding: 8px 16px; 
+    margin-top: 10px;
+}
+
+.path-info-popup .delete{
+    border:1.5px solid #ff3f1d;
+    color: #ff3f1d;
+}
+
+.path-info-popup .delete:hover{
+    background-color: #ff3f1d;
+    color: white;
+}
+
+.path-info-popup button:hover{
+    background-color: #43DEAF;
+    color: white;
+}
+
+.path-info-popup-error{
+    font-size: 18px;
+    color: red;
+}
+
+
+.add-path-button{
+    color: #333;
+    font-size: 2.3rem;
+    cursor: pointer;
+    display: inline;
+}
+
+.add-path-button:hover{
+    color: #43DEAF;
+    font-size: 2.3rem;
+}

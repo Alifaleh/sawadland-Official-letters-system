@@ -1,0 +1,55 @@
+extends container.pug
+
+block styles
+
+
+block content
+
+    div.ez.path-info-popup-background.main-aa-center.cross-aa-center
+        div.ez.path-info-popup.base-100-sm.base-50-lg.base-40-xl.wrap.main-aa-sp-ar
+            div.ez-row.base-100-sm.main-aa-end
+                i.exit-button(class="fal fa-times")
+            div.path-info-popup-input.base-100-sm.base-45-md
+                input(type="text", name="from", placeholder="From")
+            div.path-info-popup-input.base-100-sm.base-45-md
+                input(type="text", name="from-ps",placeholder="From P/S")
+            div.path-info-popup-input.base-100-sm.base-45-md
+                input(type="text", name="to", placeholder="To")
+            div.path-info-popup-input.base-100-sm.base-45-md
+                input(type="text", name="to-ps",placeholder="To P/S")
+
+            div.path-info-popup-input.base-100-sm.base-45-md
+                input(type="text", name="bandwidth", placeholder="Current Bandwidth")
+            div.path-info-popup-input.base-100-sm.base-45-md
+                select.unit-selector(name="type")
+                    option(selected, disabled, value="null") Unit
+                    option(value="Mbps") Mbps 
+                    option(value="STM") STM
+
+            div.path-info-popup-input.base-100-sm.base-45-md
+                select.type-selector(name="type")
+                    option(selected, disabled, value="null") Path type
+                    option(value="local") Local
+                    option(value="International") International
+            
+            div.path-info-popup-input.base-100-sm.base-45-md
+                input(type="text", name="port-speed",placeholder="Port speed")
+
+            button.base-100-sm.base-45-md.delete.order-2-sm.order-1-md Delete
+            button.base-100-sm.base-45-md.save.order-1-sm.order-2-md Save
+
+
+    div.ez-row(class="css_height_100%_sm")
+        div.ez.base-30-lg.css_display_none_sm.main-aa-center.cross-aa-center.css_display_flex_lg.paths-side__paths(class="css_height_100%_sm")
+            img.css_max-width_300px_sm.css_max-width_300px_md.css_margin_20px_sm(src="/images/layout/logo-w.png", alt="")
+
+        div.ez.base-100-sm.base-70-lg.main-aa-center.cross-aa-center.paths-container__paths(class="css_height_100%_sm")
+            div.ez-col.main-aa-start.cross-aa-center.base-100-sm.base-80-lg(class="css_height_100%_sm")
+                div.ez-row.base-100-sm.main-aa-end
+                    i.add-path-button(class="fal fa-plus")
+
+
+
+
+block scripts
+    script(src="/js/path_management.js")

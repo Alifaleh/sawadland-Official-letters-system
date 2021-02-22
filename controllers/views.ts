@@ -24,9 +24,14 @@ const accountManagementController = async (req, res) => {
     res.render('account_management.pug',{isAuthenticated: req.session.adminId != null, accoutnLevel:req.session.level});
 }
 
+const pathManagementControler = async (req, res) => {
+    res.render('path_management.pug',{isAuthenticated: req.session.adminId != null, accoutnLevel:req.session.level})
+}
+
 module.exports.homeControler               = homeControler;
 module.exports.loginController             = loginController;
 module.exports.dashboardController         = dashboardController;
 module.exports.downloadControler           = downloadControler;
 module.exports.signupController            = signupController;
 module.exports.accountManagementController = accountManagementController;
+module.exports.pathManagementControler     = pathManagementControler;

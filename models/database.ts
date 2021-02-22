@@ -7,6 +7,7 @@ import {LetterData} from "../src/entity/LetterData";
 import {Path} from "../src/entity/Path";
 import md5 = require('md5');
 import "dotenv/config";
+import { PassThrough } from "stream";
 
 
 type connectionOptions = {
@@ -209,4 +210,67 @@ export const setUserInfo = async (userInfo) => {
     }else{
         return 1
     }
+}
+
+export const getAllPaths = async () => {
+    const allPahts = await getConnection()
+    .createQueryBuilder()
+    .select()
+    .from(Path,'path')
+    .getRawMany();
+    return allPahts
+}
+
+export const getPathInfo = async (pathId) => {
+    const pathInfo = await getConnection()
+    .createQueryBuilder()
+    .select()
+    .from(Path,"path")
+    .where(`path.id = '${pathId}'`)
+    .getRawOne()
+    return pathInfo;
+} 
+
+export const updatePath = async (pathInfo) => {
+    await getConnection()
+    .createQueryBuilder()
+    .update(Path)
+    .set({from:pathInfo.from,
+        from_ps:pathInfo.from_ps,
+        to:pathInfo.to,
+        to_ps:pathInfo.to_ps,
+        lastBandwidth:pathInfo.bandwidth, 
+        portSpeed:pathInfo.portSpeed,
+        type:pathInfo.type,
+        unit:pathInfo.unit})
+    .where(`path.id = '${pathInfo.id}'`)
+    .execute();
+}
+
+export const addPath = async (pathInfo) => {
+    await getConnection()
+    .createQueryBuilder()
+    .insert()
+    .into(Path)
+    .values({
+        from:pathInfo.from,
+        from_ps:pathInfo.from_ps,
+        to:pathInfo.to,
+        to_ps:pathInfo.to_ps,
+        lastBandwidth:pathInfo.bandwidth,
+        unit:pathInfo.unit,
+        type:pathInfo.type,
+        portSpeed:pathInfo.portSpeed,
+    })
+    .execute();
+}
+
+
+export const deletePath = async (pathId) => {
+    await getConnection()
+    .createQueryBuilder()
+    .delete()
+    .from(Path)
+    .where(`path.id = '${pathId}'`)
+    .execute()
 }

@@ -29,13 +29,16 @@ router.get('/download/:letterId',authenticationMW.isAuthentecated, authorization
 router.get('/accountmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, viewsControllers.accountManagementController)
 router.post('/accountmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, adminControllers.accountManagementController)
 
+router.get('/pathmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, viewsControllers.pathManagementControler)
+router.post('/pathmanagement',authenticationMW.isAuthentecated, authorizationMw.level1, adminControllers.pathManagementControler)
+
+
 
 router.post('/login',authenticationMW.isNotAuthentecated , adminControllers.loginController)
 router.get('/login',authenticationMW.isNotAuthentecated , viewsControllers.loginController)
 
 router.post('/signup',authenticationMW.isNotAuthentecated , adminControllers.signupController)
 router.get('/signup',authenticationMW.isNotAuthentecated , viewsControllers.signupController)
-
 
 router.post('/logout', authenticationMW.isAuthentecated, adminControllers.logoutController)
 

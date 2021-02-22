@@ -1,7 +1,3 @@
-// div.ez-row.main-aa-sp-bt.account-holder__accounts
-// h1 ali 
-// button  view
-
 let accounts = [];
 
 let selectedId = "";
